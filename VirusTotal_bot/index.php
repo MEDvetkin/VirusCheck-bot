@@ -27,6 +27,16 @@ $translations = [
     // Добавьте другие языки по мере необходимости
 ];
 
+if (isset($update['message']['text'])) {
+    $chatId = $update['message']['chat']['id'];
+    $text = $update['message']['text'];
+
+    if ($text === '/start') {
+        sendMessage($chatId, "Добро пожаловать! Я ваш бот.");
+    } 
+    // Добавьте дополнительные условия для других команд
+}
+
 if (isset($update['message'])) {
     $chatId = $update['message']['chat']['id'];
     $languageCode = $update['message']['from']['language_code']; // По умолчанию английский
